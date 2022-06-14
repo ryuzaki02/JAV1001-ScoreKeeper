@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <ImageButton
+        android:id="@+id/teamSwitch"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="50dp"
+        android:layout_centerHorizontal="true"/>
+
+    <TextView
+        android:id="@+id/teamA"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toLeftOf="@id/teamSwitch"
+        android:layout_marginRight="30dp"
+        android:layout_alignTop="@id/teamSwitch"
+        android:textSize="40dp"
+        android:text="Team A"/>
+
+    <TextView
+        android:id="@+id/teamB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/teamSwitch"
+        android:layout_marginLeft="30dp"
+        android:layout_alignTop="@id/teamSwitch"
+        android:textSize="40dp"
+        android:text="Team B"/>
+
+    <ImageButton
+        android:id="@+id/plus"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/teamA"
+        android:layout_marginTop="40dp"/>
+
+    <Switch
+        android:id="@+id/switchButton"
+        android:layout_width="55dp"
+        android:layout_height="30dp"
+        android:scaleX="2"
+        android:scaleY="2"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/plus"
+        android:layout_marginTop="40dp"/>
+
+    <ImageButton
+        android:id="@+id/minus"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/switchButton"
+        android:layout_marginTop="40dp"/>
+
+    <RadioButton
+        android:id="@+id/radio1"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_below="@id/minus"
+        android:layout_marginTop="50dp"
+        android:layout_alignLeft="@id/minus"
+        android:layout_marginLeft="-25dp"
+        android:layout_centerHorizontal="true"/>
+
+    <TextView
+        android:id="@+id/twoPoints"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/radio1"
+        android:paddingTop="-5dp"
+        android:paddingLeft="10dp"
+        android:textSize="20dp"
+        android:layout_toRightOf="@id/radio1"
+        android:text="2 points" />
+
+    <RadioButton
+        android:id="@+id/radio2"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_below="@id/radio1"
+        android:layout_marginTop="20dp"
+        android:layout_alignLeft="@id/minus"
+        android:layout_marginLeft="-25dp"
+        android:layout_centerHorizontal="true"/>
+
+    <TextView
+        android:id="@+id/fourPoints"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/radio2"
+        android:paddingTop="-5dp"
+        android:paddingLeft="10dp"
+        android:textSize="20dp"
+        android:layout_toRightOf="@id/radio2"
+        android:text="4 points" />
+
+    <RadioButton
+        android:id="@+id/radio3"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_below="@id/radio2"
+        android:layout_marginTop="20dp"
+        android:layout_alignLeft="@id/minus"
+        android:layout_marginLeft="-25dp"
+        android:layout_centerHorizontal="true"/>
+
+    <TextView
+        android:id="@+id/sixPoints"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/radio3"
+        android:paddingTop="-5dp"
+        android:paddingLeft="10dp"
+        android:textSize="20dp"
+        android:layout_toRightOf="@id/radio3"
+        android:text="6 points" />
+
+    <RadioButton
+        android:id="@+id/radio4"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_below="@id/radio3"
+        android:layout_marginTop="20dp"
+        android:layout_alignLeft="@id/minus"
+        android:layout_marginLeft="-25dp"
+        android:layout_centerHorizontal="true"/>
+
+    <TextView
+        android:id="@+id/eightPoints"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/radio4"
+        android:paddingTop="-5dp"
+        android:paddingLeft="10dp"
+        android:textSize="20dp"
+        android:layout_toRightOf="@id/radio4"
+        android:text="8 points" />
+
+
+</RelativeLayout>
