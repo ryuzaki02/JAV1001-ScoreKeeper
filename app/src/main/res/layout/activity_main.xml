@@ -1,147 +1,137 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity">
-
-    <ImageButton
-        android:id="@+id/teamSwitch"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="50dp"
-        android:layout_centerHorizontal="true"/>
-
-    <TextView
-        android:id="@+id/teamA"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_toLeftOf="@id/teamSwitch"
-        android:layout_marginRight="30dp"
-        android:layout_alignTop="@id/teamSwitch"
-        android:textSize="40dp"
-        android:text="Team A"/>
-
-    <TextView
-        android:id="@+id/teamB"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_toRightOf="@id/teamSwitch"
-        android:layout_marginLeft="30dp"
-        android:layout_alignTop="@id/teamSwitch"
-        android:textSize="40dp"
-        android:text="Team B"/>
-
-    <ImageButton
-        android:id="@+id/plus"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@id/teamA"
-        android:layout_marginTop="40dp"/>
+    android:layout_height="match_parent">
 
     <Switch
-        android:id="@+id/switchButton"
-        android:layout_width="55dp"
-        android:layout_height="30dp"
+        android:id="@+id/switch2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:scaleX="2"
         android:scaleY="2"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@id/plus"
-        android:layout_marginTop="40dp"/>
+        android:layout_marginBottom="100dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/teamScoreA"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="60dp"
+        android:text="0"
+        android:textColor="@color/teal_200"
+        android:textSize="60dp"
+        app:layout_constraintBottom_toBottomOf="@+id/switch2"
+        app:layout_constraintEnd_toStartOf="@+id/switch2"
+        app:layout_constraintTop_toTopOf="@+id/switch2" />
+
+    <TextView
+        android:id="@+id/teamScoreB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="60dp"
+        android:text="0"
+        android:textColor="@color/teal_700"
+        android:textSize="60dp"
+        app:layout_constraintBottom_toBottomOf="@+id/switch2"
+        app:layout_constraintStart_toEndOf="@+id/switch2"
+        app:layout_constraintTop_toTopOf="@+id/switch2" />
+
+    <TextView
+        android:id="@+id/teamNameA"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:maxWidth="140dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="100dp"
+        android:autoSizeMaxTextSize="40sp"
+        android:autoSizeMinTextSize="10sp"
+        android:autoSizeStepGranularity="2sp"
+        android:text="Team A"
+        android:textSize="40sp"
+        android:layout_marginLeft="30dp"
+        android:textColor="@color/teal_200"
+        app:layout_constraintBottom_toTopOf="@+id/teamScoreA"
+        app:layout_constraintRight_toLeftOf="@+id/switch2"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/teamNameB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:maxWidth="140dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginBottom="100dp"
+        android:autoSizeMaxTextSize="40sp"
+        android:autoSizeMinTextSize="10sp"
+        android:autoSizeStepGranularity="2sp"
+        android:text="Team B"
+        android:textSize="40sp"
+        android:layout_marginRight="30dp"
+        android:textColor="@color/teal_700"
+        app:layout_constraintBottom_toTopOf="@+id/teamScoreB"
+        app:layout_constraintRight_toLeftOf="@+id/switch2"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <ImageButton
-        android:id="@+id/minus"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@id/switchButton"
-        android:layout_marginTop="40dp"/>
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        app:layout_constraintRight_toLeftOf="@+id/radioGroup"
+        app:layout_constraintTop_toTopOf="@+id/radioGroup"
+        app:layout_constraintBottom_toBottomOf="@id/radioGroup"
+        android:layout_marginRight="40dp"
+        android:src="@drawable/plus"/>
 
-    <RadioButton
-        android:id="@+id/radio1"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_below="@id/minus"
-        android:layout_marginTop="50dp"
-        android:layout_alignLeft="@id/minus"
-        android:layout_marginLeft="-25dp"
-        android:layout_centerHorizontal="true"/>
+    <ImageButton
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        app:layout_constraintLeft_toRightOf="@+id/radioGroup"
+        app:layout_constraintTop_toTopOf="@+id/radioGroup"
+        app:layout_constraintBottom_toBottomOf="@id/radioGroup"
+        android:layout_marginLeft="40dp"
+        android:src="@drawable/minus"/>
 
-    <TextView
-        android:id="@+id/twoPoints"
+    <RadioGroup
+        android:id="@+id/radioGroup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@id/radio1"
-        android:paddingTop="-5dp"
-        android:paddingLeft="10dp"
-        android:textSize="20dp"
-        android:layout_toRightOf="@id/radio1"
-        android:text="2 points" />
+        android:layout_marginTop="100dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:checkedButton="@id/twoPoint"
+        app:layout_constraintTop_toBottomOf="@id/switch2">
 
-    <RadioButton
-        android:id="@+id/radio2"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_below="@id/radio1"
-        android:layout_marginTop="20dp"
-        android:layout_alignLeft="@id/minus"
-        android:layout_marginLeft="-25dp"
-        android:layout_centerHorizontal="true"/>
+        <RadioButton
+            android:id="@+id/twoPoint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2 points"
+            android:textSize="25dp"/>
 
-    <TextView
-        android:id="@+id/fourPoints"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@id/radio2"
-        android:paddingTop="-5dp"
-        android:paddingLeft="10dp"
-        android:textSize="20dp"
-        android:layout_toRightOf="@id/radio2"
-        android:text="4 points" />
+        <RadioButton
+            android:id="@+id/fourPoint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="4 points"
+            android:textSize="25dp"/>
 
-    <RadioButton
-        android:id="@+id/radio3"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_below="@id/radio2"
-        android:layout_marginTop="20dp"
-        android:layout_alignLeft="@id/minus"
-        android:layout_marginLeft="-25dp"
-        android:layout_centerHorizontal="true"/>
+        <RadioButton
+            android:id="@+id/sixPoint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="6 points"
+            android:textSize="25dp"/>
 
-    <TextView
-        android:id="@+id/sixPoints"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@id/radio3"
-        android:paddingTop="-5dp"
-        android:paddingLeft="10dp"
-        android:textSize="20dp"
-        android:layout_toRightOf="@id/radio3"
-        android:text="6 points" />
+        <RadioButton
+            android:id="@+id/eightPoint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="8 points"
+            android:textSize="25dp"/>
+    </RadioGroup>
 
-    <RadioButton
-        android:id="@+id/radio4"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_below="@id/radio3"
-        android:layout_marginTop="20dp"
-        android:layout_alignLeft="@id/minus"
-        android:layout_marginLeft="-25dp"
-        android:layout_centerHorizontal="true"/>
-
-    <TextView
-        android:id="@+id/eightPoints"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@id/radio4"
-        android:paddingTop="-5dp"
-        android:paddingLeft="10dp"
-        android:textSize="20dp"
-        android:layout_toRightOf="@id/radio4"
-        android:text="8 points" />
-
-
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
