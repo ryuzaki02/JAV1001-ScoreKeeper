@@ -43,39 +43,48 @@
         app:layout_constraintTop_toTopOf="@+id/teamSwitch" />
 
     <TextView
+        android:id="@+id/winnerText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="* Team who crosses 100 points wins *"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="15dp"
+        android:textColor="@color/black"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <EditText
         android:id="@+id/teamNameA"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:maxWidth="140dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginBottom="100dp"
+        android:layout_marginBottom="70dp"
         android:autoSizeMaxTextSize="40sp"
-        android:autoSizeMinTextSize="10sp"
+        android:autoSizeMinTextSize="5sp"
         android:autoSizeStepGranularity="2sp"
         android:text="Team A"
-        android:textSize="40sp"
+        android:textSize="30sp"
         android:layout_marginLeft="30dp"
         android:textColor="@color/teal_200"
+        android:imeOptions="actionDone"
         app:layout_constraintBottom_toTopOf="@+id/teamScoreA"
-        app:layout_constraintRight_toLeftOf="@+id/teamSwitch"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <TextView
+    <EditText
         android:id="@+id/teamNameB"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:maxWidth="140dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginBottom="100dp"
+        android:layout_marginBottom="70dp"
         android:autoSizeMaxTextSize="40sp"
         android:autoSizeMinTextSize="10sp"
         android:autoSizeStepGranularity="2sp"
         android:text="Team B"
-        android:textSize="40sp"
+        android:textSize="30sp"
         android:layout_marginRight="30dp"
         android:textColor="@color/teal_700"
+        android:imeOptions="actionDone"
         app:layout_constraintBottom_toTopOf="@+id/teamScoreB"
-        app:layout_constraintRight_toLeftOf="@+id/teamSwitch"
         app:layout_constraintEnd_toEndOf="parent" />
 
     <ImageButton
@@ -102,7 +111,7 @@
         android:id="@+id/radioGroup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="70dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         android:checkedButton="@id/twoPoint"

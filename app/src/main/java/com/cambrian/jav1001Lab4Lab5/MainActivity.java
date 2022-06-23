@@ -3,6 +3,7 @@ package com.cambrian.jav1001Lab4Lab5;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.location.GnssAntennaInfo;
 import android.os.Bundle;
@@ -10,12 +11,15 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.ImageButton;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Switch;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.material.snackbar.Snackbar;
 
@@ -25,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
     Team secondTeam = new Team(1,"Team B", 0);
     Team selectedTeam = firstTeam;
     int currentPoints = 2;
-    int maximumPoints = 50;
+    int maximumPoints = 100;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
 
     void teamNameListener() {
         final TextView firstTeamName = (TextView) findViewById(R.id.teamNameA);
+        final TextView secondTeamName = (TextView) findViewById(R.id.teamNameB);
         firstTeamName.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
@@ -57,10 +62,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void afterTextChanged(Editable editable) {
                 firstTeam.name = editable.toString();
+                if (firstTeam.name.equals(secondTeam.name)) {
+                    hideKeyboard(firstTeamName);
+                    Toast.makeText(MainActivity.this, "Team name can not be same.", Toast.LENGTH_SHORT).show();
+                    firstTeamName.setText("Team A");
+                }
             }
         });
 
-        final TextView secondTeamName = (TextView) findViewById(R.id.teamNameB);
         secondTeamName.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
@@ -75,6 +84,11 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void afterTextChanged(Editable editable) {
                 secondTeam.name = editable.toString();
+                if (firstTeam.name.equals(secondTeam.name)) {
+                    hideKeyboard(firstTeamName);
+                    Toast.makeText(MainActivity.this, "Team name can not be same.", Toast.LENGTH_SHORT).show();
+                    firstTeamName.setText("Team B");
+                }
             }
         });
     }
@@ -160,21 +174,23 @@ public class MainActivity extends AppCompatActivity {
     void updateTeamPoints() {
         TextView teamView = (TextView) findViewById(selectedTeam.id == 0 ? R.id.teamScoreA : R.id.teamScoreB);
         teamView.setText(""+selectedTeam.score);
-        if (firstTeam.score >= 50 || secondTeam.score >= 50) {
-            showSnackBar(firstTeam.score > secondTeam.score ? firstTeam : secondTeam);
+        if (firstTeam.score >= maximumPoints || secondTeam.score >= maximumPoints) {
+            showSnackBar("Hurray!!!", firstTeam.score > secondTeam.score ? firstTeam.name : secondTeam.name, true);
         }
     }
 
-    void showSnackBar(Team winnerTeam) {
+    void showSnackBar(String title, String msg, boolean showReset) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setMessage(winnerTeam.name + " is the winner!!")
-                .setPositiveButton("Reset", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        reset();
-                    }
-                });
+        builder.setMessage(msg + " is the winner.");
+        if (showReset) {
+            builder.setPositiveButton("Reset", new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int id) {
+                    reset();
+                }
+            });
+        }
         AlertDialog alert = builder.create();
-        alert.setTitle("Hurray");
+        alert.setTitle(title);
         alert.show();
     }
 
@@ -187,5 +203,13 @@ public class MainActivity extends AppCompatActivity {
         TextView secondTeamScoreView = (TextView) findViewById(R.id.teamScoreB);
         firstTeamScoreView.setText("0");
         secondTeamScoreView.setText("0");
+        RadioGroup group = (RadioGroup) findViewById(R.id.radioGroup);
+        group.check(R.id.twoPoint);
+    }
+
+    public void hideKeyboard(View view) {
+        view.clearFocus();
+        InputMethodManager inputManager = (InputMethodManager) this.getSystemService(Context.INPUT_METHOD_SERVICE);
+        inputManager.hideSoftInputFromWindow(this.getCurrentFocus().getWindowToken(),InputMethodManager.HIDE_NOT_ALWAYS);
     }
 }
