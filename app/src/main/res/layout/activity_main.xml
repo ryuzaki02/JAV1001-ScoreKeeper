@@ -6,6 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    !-- Switch to toggle team selection --
+    !-- Placed in the center w.r.t. parent with center constraints --
     <Switch
         android:id="@+id/teamSwitch"
         android:layout_width="wrap_content"
@@ -18,6 +20,9 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    !-- Team A score text view --
+    !-- Placed in the center w.r.t. switch --
+    !-- Added padding left to main switch --
     <TextView
         android:id="@+id/teamScoreA"
         android:layout_width="wrap_content"
@@ -30,6 +35,9 @@
         app:layout_constraintEnd_toStartOf="@+id/teamSwitch"
         app:layout_constraintTop_toTopOf="@+id/teamSwitch" />
 
+    !-- Team B score text view --
+    !-- Placed in the center w.r.t. switch --
+    !-- Added padding right to main switch --
     <TextView
         android:id="@+id/teamScoreB"
         android:layout_width="wrap_content"
@@ -42,6 +50,9 @@
         app:layout_constraintStart_toEndOf="@+id/teamSwitch"
         app:layout_constraintTop_toTopOf="@+id/teamSwitch" />
 
+    !-- Static text view to show message for team winner points --
+    !-- Placed in the right with padding w.r.t. parent --
+    !-- Added padding top to parent --
     <TextView
         android:id="@+id/winnerText"
         android:layout_width="wrap_content"
@@ -53,6 +64,9 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
 
+    !-- Team A name edit view --
+    !-- Placed in the top w.r.t. team A name --
+    !-- Added padding left to parent --
     <EditText
         android:id="@+id/teamNameA"
         android:layout_width="wrap_content"
@@ -70,6 +84,9 @@
         app:layout_constraintBottom_toTopOf="@+id/teamScoreA"
         app:layout_constraintStart_toStartOf="parent" />
 
+    !-- Team B score text view --
+    !-- Placed in the center w.r.t. team B name --
+    !-- Added padding right to main parent --
     <EditText
         android:id="@+id/teamNameB"
         android:layout_width="wrap_content"
@@ -87,6 +104,9 @@
         app:layout_constraintBottom_toTopOf="@+id/teamScoreB"
         app:layout_constraintEnd_toEndOf="parent" />
 
+    !-- Plus image button --
+    !-- Placed in the center w.r.t. radio group --
+    !-- Added padding left to radio group --
     <ImageButton
         android:id="@+id/plusButton"
         android:layout_width="70dp"
@@ -97,6 +117,9 @@
         android:layout_marginRight="40dp"
         android:src="@drawable/plus"/>
 
+    !-- Plus image button --
+    !-- Placed in the center w.r.t. radio group --
+    !-- Added padding right to radio group --
     <ImageButton
         android:id="@+id/minusButton"
         android:layout_width="70dp"
@@ -107,6 +130,9 @@
         android:layout_marginLeft="40dp"
         android:src="@drawable/minus"/>
 
+    !-- Radio Group to add four radio buttons for points --
+    !-- Placed in the center w.r.t. switch --
+    !-- Added padding top to switch --
     <RadioGroup
         android:id="@+id/radioGroup"
         android:layout_width="wrap_content"
