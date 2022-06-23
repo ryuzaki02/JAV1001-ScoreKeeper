@@ -62,11 +62,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void afterTextChanged(Editable editable) {
                 firstTeam.name = editable.toString();
-                if (firstTeam.name.equals(secondTeam.name)) {
-                    hideKeyboard(firstTeamName);
-                    Toast.makeText(MainActivity.this, "Team name can not be same.", Toast.LENGTH_SHORT).show();
-                    firstTeamName.setText("Team A");
-                }
+                showTeamNameToast(firstTeamName);
             }
         });
 
@@ -84,11 +80,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void afterTextChanged(Editable editable) {
                 secondTeam.name = editable.toString();
-                if (firstTeam.name.equals(secondTeam.name)) {
-                    hideKeyboard(firstTeamName);
-                    Toast.makeText(MainActivity.this, "Team name can not be same.", Toast.LENGTH_SHORT).show();
-                    firstTeamName.setText("Team B");
-                }
+                showTeamNameToast(secondTeamName);
             }
         });
     }
@@ -207,7 +199,15 @@ public class MainActivity extends AppCompatActivity {
         group.check(R.id.twoPoint);
     }
 
-    public void hideKeyboard(View view) {
+    private void showTeamNameToast(TextView teamNameTextView) {
+        if (firstTeam.name.equals(secondTeam.name)) {
+            hideKeyboard(teamNameTextView);
+            Toast.makeText(MainActivity.this, "Team name can not be same.", Toast.LENGTH_SHORT).show();
+            teamNameTextView.setText(teamNameTextView.getId() == R.id.teamNameA ? "Team A" : "Team B");
+        }
+    }
+
+    private void hideKeyboard(View view) {
         view.clearFocus();
         InputMethodManager inputManager = (InputMethodManager) this.getSystemService(Context.INPUT_METHOD_SERVICE);
         inputManager.hideSoftInputFromWindow(this.getCurrentFocus().getWindowToken(),InputMethodManager.HIDE_NOT_ALWAYS);
