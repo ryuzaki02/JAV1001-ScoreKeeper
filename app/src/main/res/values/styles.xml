@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Overrides Text View to set some styles, in this case text size -->
+    <style name="TeamScoreTextViews" parent="Widget.AppCompat.TextView">
+        <item name="android:textSize">@dimen/teamScoreFontSize</item>
+    </style>
+    <!-- Overrides Edit Text to set some styles -->
+    <!-- In this case text size, maximum width, Max text size, Min Text Size etc. -->
+    <style name="TeamNameEditTextViews" parent="Widget.AppCompat.EditText">
+        <item name="maxWidth">@dimen/teamNameMaxWidth</item>
+        <item name="autoSizeMaxTextSize">@dimen/teamNameAutoSizeMax</item>
+        <item name="autoSizeMinTextSize">@dimen/teamNameAutoSizeMin</item>
+        <item name="autoSizeStepGranularity">@dimen/teamNameAutoSizeStepGranularity</item>
+        <item name="android:textSize">@dimen/teamNameTextSize</item>
+    </style>
+    <!-- Overrides Score button defined in them to set sizes -->
+    <style name="ScoreActionButtons" parent="ScoreButton">
+        <item name="android:layout_width">@dimen/scoreImageButtonWidth</item>
+        <item name="android:layout_height">@dimen/scoreImageButtonHeight</item>
+    </style>
+    <!-- Overrides Radio button to set text size -->
+    <style name="RadioButtons" parent="Widget.AppCompat.CompoundButton.RadioButton">
+        <item name="android:textSize">@dimen/radioButtonTextSize</item>
+    </style>
+
+</resources>

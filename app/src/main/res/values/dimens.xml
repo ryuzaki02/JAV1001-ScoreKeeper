@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="teamScoreFontSize">60sp</dimen>
+    <dimen name="teamNameFontSize">60sp</dimen>
+    <dimen name="teamNameMaxWidth">140dp</dimen>
+    <dimen name="teamNameAutoSizeMin">5sp</dimen>
+    <dimen name="teamNameAutoSizeMax">40sp</dimen>
+    <dimen name="teamNameAutoSizeStepGranularity">2sp</dimen>
+    <dimen name="teamNameTextSize">30sp</dimen>
+    <dimen name="scoreImageButtonWidth">70dp</dimen>
+    <dimen name="scoreImageButtonHeight">70dp</dimen>
+    <dimen name="radioButtonTextSize">25dp</dimen>
+</resources>

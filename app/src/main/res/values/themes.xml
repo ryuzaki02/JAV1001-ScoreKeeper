@@ -6,11 +6,21 @@
         <item name="colorPrimaryVariant">@color/purple_700</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/teal_200</item>
+        <item name="colorSecondary">@color/purple_500</item>
         <item name="colorSecondaryVariant">@color/teal_700</item>
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+
+        <!-- This provides basic text color according to theme -->
+        <item name="android:textColor">@color/secondaryTextColor</item>
+        <!-- This provides them to Score Button (plus minus) -->
+        <item name="materialButtonStyle">@style/ScoreButton</item>
+    </style>
+
+    <!-- Overrides Parent Image button style with some back ground tint -->
+    <style name="ScoreButton" parent="Widget.AppCompat.ImageButton">
+        <item name="android:backgroundTint">@color/teal_700</item>
     </style>
 </resources>
